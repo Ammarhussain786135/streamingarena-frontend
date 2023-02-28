@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$colors: (
+    primary: #FF6057,
+    secondary: #FAAE4E,
+    green: #72CB8B,
+    red: #CB2C2C,
+    grey: #707070,
+    lightGrey: #B4B4B4,
+    darkest: #3B3A3A,
+    light: #ffffff,
+    body-bg: #F6F8FC,
+    ele-bg: #E9EEF4,
+    dark: #8F8F8F,
+    unEmph:#B4BEC9,
+    link: #8fafff,
+);
+
+@function color ($color-name) {
+    @return map-get($colors, $color-name);
+}
+
+@mixin centralizeFlex ($x: 0, $y: 0) {
+    display: flex;
+
+    @if $x != 0 {
+        justify-content: center;
+    }
+
+    @if $y != 0 {
+        align-items: center;
+    }
+}
+
+@mixin flexBox ($wrap: "", $x: "", $y: "", $flow:  "") {
+    display: flex;
+
+    @if $wrap != "" {
+        flex-wrap: $wrap;
+    }
+
+    @if $x != "" {
+        justify-content: $x;
+    }
+
+    @if $y != "" {
+        align-items: $y;
+    }
+
+    @if $flow != "" {
+        flex-flow: $flow;
+    }
+}
+
+$card-shadow: 2px 2px 4px rgba(0, 0, 0, 0.04);
+$border-radius: 12px;
+$poppins: 'Poppins', sans-serif;
+$gradient-btn: linear-gradient(90deg, rgba(124,28,128,0.66) 0%, rgba(255,96,87,1) 100%);
+$box-shadow: 0 0 15px rgba(0, 0, 0, 0.26);
+$medium: 992px;
+$small: 450px;
+$large: 1200px;
+$tablet: 768px;
+
+@mixin small {
+    @media (max-width: #{$small}) {
+        @content;
+    }
+}
+
+@mixin medium {
+    @media (max-width: #{$medium}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: #{$tablet}) {
+        @content;
+    }
+}
+
+@mixin large {
+    @media (max-width: #{$large}) {
+        @content;
+    }
+}
+
+@mixin xLarge {
+    @media (min-width: #{$large}) {
+        @content;
+    }
+}
